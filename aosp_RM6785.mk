@@ -21,11 +21,25 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile
 $(call inherit-product, device/realme/RM6785/device.mk)
 
-# Inherit some common OctaviOS stuff.
-$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+
+IS_PHONE := true
+CUSTOM_BUILD_TYPE := OFFICIAL
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+TARGET_INCLUDE_STOCK_ACORE := false
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_BOOT_ANIMATION_RES := 720
+PPUI_MAINTAINER := SriBalaji(TheCloverly)
+
+# PixelPlusUI OFFICIAL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ppui.device_name=RM6785 \
+    ro.ppui.is_official=true \
+    ro.ppui.maintainer_name=SriBalaji(TheCloverly)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := octavi_RM6785
+PRODUCT_NAME := aosp_RM6785
 PRODUCT_DEVICE := RM6785
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := RM6785
